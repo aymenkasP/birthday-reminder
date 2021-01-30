@@ -1,17 +1,19 @@
 import React from 'react';
 
 
-export default function List({people}){
- return(
-     <div>
-    <h1>{people.map((person) => {
-        const {id , name , age , image } = person;
-        return <div key = {id} className='person'>
-                <img src={image} alt={name} />
-                <h4>{name} </h4>
-                <p>{age} years </p>
-              </div>
-    })} </h1>
-     </div>
- )   
+export default function List({ TasksList, DeleteTask }) {
+
+    return (
+        <div>
+            <ul>
+                {TasksList.map((task,index) => {
+                    return (
+                        <li key={index} >
+                            <h4>{task}</h4>
+                            <button id='delete' onClick={() => DeleteTask(task)} >delete</button>
+                        </li>
+                    )})}
+            </ul>
+        </div>
+    )
 }
